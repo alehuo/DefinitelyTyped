@@ -3,6 +3,7 @@
 // Definitions by: Xie Jingyang <https://github.com/xieisabug>
 //                 AntiMoron <https://github.com/AntiMoron>
 //                 Liveangela <https://github.com/liveangela>
+//                 Aleksi Huotala <https://github.com/alehuo>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
@@ -143,11 +144,11 @@ declare namespace echarts {
 
     interface EChartOption {
         title?: EChartTitleOption
-        legend?: object,
+        legend?: EChartLegendOption,
         grid?: object,
         xAxis?: object,
         yAxis?: object,
-        polar?: object,
+        polar?: EChartPolarOption,
         radiusAxis?: object,
         angleAxis?: object,
         radar?: object,
@@ -218,6 +219,123 @@ declare namespace echarts {
         shadowColor?: number,
         shadowOffsetX?: number,
         shadowOffsetY?: number,
+    }
+
+    /**
+     * EChart library legend options
+     *
+     * @interface EChartLegendOption
+     */
+    interface EChartLegendOption {
+        type?: string,
+        id?: string,
+        show?: boolean,
+        zLevel?: number,
+        z?: number,
+        left?: string | number,
+        top?: string | number,
+        right?: string | number,
+        bottom?: string | number,
+        width?: string | number,
+        height?: string | number,
+        orient?: string,
+        align?: string,
+        padding?: string,
+        itemGap?: number,
+        itemWidth?: number,
+        itemHeight?: number,
+        symbolKeepAspect?: boolean,
+        formatter?: string | Function,
+        selectedMode?: string | boolean,
+        inactiveColor?: string,
+        selected?: { [key: string]: boolean },
+        textStyle?: EChartLegendTextStyle
+        tooltip?: object,
+        data?: EChartLegendOptionData[],
+        backgroundColor?: string,
+        borderColor?: string,
+        borderWidth?: number,
+        borderRadius?: number,
+        shadowBlur?: number,
+        shadowColor?: string,
+        shadowOffsetX?: number,
+        shadowOffsetY?: number,
+        scrollDataIndex?: number,
+        pageButtonItemGap?: number,
+        pageButtonGap?: number,
+        pageButtonPosition?: string,
+        pageFormatter?: string | Function,
+        pageIcons?: {
+            horizontal?: string[],
+            vartical?: string[]
+        }
+        pageIconColor?: string,
+        pageIconInactiveColor?: string,
+        pageIconSize?: number,
+        pageTextStyle?: object,
+        animation?: boolean,
+        animationDurationUpdate?: number
+    }
+
+    interface EChartLegendOptionData {
+        name?: string,
+        icon?: string,
+        textStyle?: object
+    }
+
+    interface EChartLegendTextStyle {
+        color?: string,
+        fontStyle?: string,
+        fontWeight?: string,
+        fontFamily?: string,
+        fontSize?: number,
+        align?: string,
+        verticalAlign?: string,
+        lineHeight?: number,
+        backgroundColor?: string | object
+        borderColor?: string,
+        borderWidth?: number,
+        borderRadius?: number,
+        padding?: number | number[],
+        shadowColor?: string,
+        shadowBlur?: number,
+        shadowOffsetX?: number,
+        shadowOffsetY?: number,
+        width?: number | string,
+        height?: number | string,
+        textBorderColor?: string,
+        textBorderWidth?: number,
+        textShadowColor?: string,
+        textShadowBlur?: number,
+        textShadowOffsetX?: number,
+        textShadowOffsetY?: number,
+        rich?: object
+    }
+
+    interface EChartPolarOption {
+        id?: string,
+        zLevel?: number,
+        z?: number,
+        center?: number[] | string[],
+        radius?: object[],
+        tooltip?: {
+            show?: boolean,
+            trigger?: string,
+        },
+        axisPointer?: {
+            type?: string,
+            axis?: string,
+            snap?: boolean,
+            z?: number
+        },
+        position?: string | string[] | number[] | Function,
+        formatter?: string | Function,
+        backgroundColor?: string,
+        borderColor?: string,
+        borderWidth?: number,
+        padding?: number,
+        textStyle?: object, // Improve later on
+        extraCssText?: string
     }
 }
 
